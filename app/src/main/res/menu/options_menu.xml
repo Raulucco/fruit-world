@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/add_fruit"
+        android:title="@string/add_fruit"
+        android:icon="@android:drawable/ic_input_add"
+        android:visible="true"></item>
+    <item android:id="@+id/grid_view"
+        android:title="@string/to_grid_view"
+        android:icon="@android:drawable/ic_dialog_dialer"></item>
+    <item android:id="@+id/list_view"
+        android:title="@string/to_list_view"
+        android:icon="@android:drawable/ic_menu_sort_by_size"></item>
+</menu>
