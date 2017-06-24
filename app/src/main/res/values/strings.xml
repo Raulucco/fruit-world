@@ -3,4 +3,5 @@
     <string name="add_fruit">Add</string>
     <string name="to_grid_view">Grid</string>
     <string name="to_list_view">List</string>
+    <string name="delete_fruit">Delete</string>
 </resources>

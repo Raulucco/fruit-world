@@ -2,12 +2,16 @@ package udemy.android.rauluco.fruitworld.adapters;
 
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.List;
 
+import udemy.android.rauluco.fruitworld.R;
 import udemy.android.rauluco.fruitworld.models.Fruit;
 
 public class FruitAdapter extends BaseAdapter {
@@ -38,6 +42,28 @@ public class FruitAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        ViewMemoizer memoView;
+
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(layout, null);
+            memoView = new ViewMemoizer();
+            memoView.name = (TextView) convertView.findViewById(R.id.name_text_view);
+            memoView.origin = (TextView) convertView.findViewById(R.id.origin_text_view);
+            memoView.icon = (ImageView) convertView.findViewById(R.id.icon_image_view);
+            convertView.setTag(memoView);
+        } else {
+            memoView = (ViewMemoizer) convertView.getTag();
+        }
+        final Fruit fruit = (Fruit) getItem(position);
+        memoView.name.setText(fruit.getName());
+        memoView.origin.setText(fruit.getOrigin());
+        memoView.icon.setImageResource(fruit.getIcon());
+        return  convertView;
+    }
+
+    static class ViewMemoizer {
+        private TextView name;
+        private TextView origin;
+        private ImageView icon;
     }
 }
